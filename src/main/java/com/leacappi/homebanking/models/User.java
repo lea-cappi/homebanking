@@ -2,7 +2,7 @@ package com.leacappi.homebanking.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-//guarda, no es entity todavia
+
 @Entity
 @Table(name = "user")
 @Builder

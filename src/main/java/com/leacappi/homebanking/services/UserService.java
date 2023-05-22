@@ -22,24 +22,24 @@ public class UserService {
         this.repository = repository;
     }
 
-    public List<User> getUsers() {
-        List<UserDto> usersDto = repository.findAll();
+    public List<UserDto> getUsers() {
+        List<User> users = repository.findAll();
         //List<User> users = usersDto.stream().map(UserMapper::dtoMapToUser).toList();
         //return users;
-        return usersDto.stream()
-                .map(UserMapper::dtoMapToUser)
+        return users.stream()
+                .map(UserMapper::userMapToDto)
                 .toList();
     }
 
-    public User getUserById(Long id) {
-        Optional<UserDto> userDto = (UserDto) repository.findById(id);
-        User user = UserMapper.dtoMapToUser(userDto);
-        return user;
+    public UserDto getUserById(Long id) {
+        Optional<User> user = repository.findById(id);
+        UserDto userDto = UserMapper.userMapToDto(user.get());
+        return userDto;
     }
 
-    public User createUser(User user){
-        UserDto dto = UserMapper.userMapToDto(user);
+    public UserDto createUser(UserDto dto){
+        User user = UserMapper.dtoMapToUser(dto);
 
-        return UserMapper.dtoMapToUser(repository.save(dto));
+        return UserMapper.userMapToDto(repository.save(user));
     }
 }
