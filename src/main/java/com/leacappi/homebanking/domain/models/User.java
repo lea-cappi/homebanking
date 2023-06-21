@@ -1,4 +1,4 @@
-package com.leacappi.homebanking.models;
+package com.leacappi.homebanking.domain.models;
 
 import jakarta.persistence.*;
 import lombok.*;

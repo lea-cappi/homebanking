@@ -1,7 +1,7 @@
 package com.leacappi.homebanking.mappers;
 
-import com.leacappi.homebanking.models.User;
-import com.leacappi.homebanking.models.dtos.UserDto;
+import com.leacappi.homebanking.domain.models.User;
+import com.leacappi.homebanking.api.dtos.UserDto;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

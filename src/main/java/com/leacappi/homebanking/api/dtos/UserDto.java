@@ -1,4 +1,4 @@
-package com.leacappi.homebanking.models.dtos;
+package com.leacappi.homebanking.api.dtos;
 
 import lombok.*;
 

@@ -1,7 +1,6 @@
-package com.leacappi.homebanking.controllers;
+package com.leacappi.homebanking.api.controllers;
 
-import com.leacappi.homebanking.models.User;
-import com.leacappi.homebanking.models.dtos.UserDto;
+import com.leacappi.homebanking.api.dtos.UserDto;
 import com.leacappi.homebanking.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +40,9 @@ public class UserController {
         return ResponseEntity.status(201).body(service.createUser(dto));
     }
 
-    public void updateUser(User user){}
+    @PutMapping(value = "/users")
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto){
+        return ResponseEntity.status(201).body(service.updateUser(userDto));
+    }
     public void deleteUser(Long id){}
 }

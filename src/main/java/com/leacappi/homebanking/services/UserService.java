@@ -1,8 +1,8 @@
 package com.leacappi.homebanking.services;
 
 import com.leacappi.homebanking.mappers.UserMapper;
-import com.leacappi.homebanking.models.User;
-import com.leacappi.homebanking.models.dtos.UserDto;
+import com.leacappi.homebanking.domain.models.User;
+import com.leacappi.homebanking.api.dtos.UserDto;
 import com.leacappi.homebanking.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +41,9 @@ public class UserService {
         User user = UserMapper.dtoMapToUser(dto);
 
         return UserMapper.userMapToDto(repository.save(user));
+    }
+
+    public UserDto updateUser (UserDto userDto){
+        return UserMapper.userMapToDto(repository.save(UserMapper.dtoMapToUser(userDto)));
     }
 }
